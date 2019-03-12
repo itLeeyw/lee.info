@@ -1,0 +1,294 @@
+body{
+    background: #efefef;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.topNavBar{
+    width: 100%;
+    padding: 28px 0px;
+    /* 脱离文档流，让效果处于图片背景之上 */
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.topNavBar-inner{
+    padding: 0px 16px;
+}
+.topNavBar > div > a{
+    color: #e06567;
+ 
+    float: left;
+}
+
+.topNavBar > div > nav > ul{
+    float: right;
+}
+.topNavBar > div > nav > ul > li{
+   float: left;
+   margin-left: 17px;
+   margin-right: 17px;
+
+}
+
+.topNavBar > div > nav > ul > li > a{
+    font-size: 12px;
+    color: #b7b7b7;
+    text-decoration: none;
+    font-weight: bold;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    padding-top: 5px;
+    padding-bottom:8px;  
+    display: block;
+}
+.topNavBar > div > nav{
+    padding-top: 5px;
+    padding-bottom: 2px;
+
+}
+
+.topNavBar>div>nav>ul>li>a:hover{
+    border-bottom: 3px solid #e06567;
+}
+
+.topNavBar .logo {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    font-size: 24px;
+    font-family: "方正超粗黑_GBK";
+}
+
+.topNavBar .logo  .lee{
+    color: #e06567;
+    margin-right: 4px;
+}
+
+.topNavBar .logo .card{
+    color: gray;
+}
+.banner{
+    height: 515px;
+    background-image:url(./img/wallhaven-747189.jpg);
+    background-position: center center;
+    box-shadow: 0px 14px 26px 2px rgba(0,0,0,0.08);
+    background-size: cover;
+}
+
+.banner .mask{
+    height: 515px;
+    background-color:rgba(0,0,0,0.8);
+}
+
+
+.userCard{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px 2px rgba(0,0,0,0.4);
+}
+.userCard .welcome{
+    background: #e06567;
+    color: #fff;
+    display: inline-block;
+    padding: 4px 16.5px;
+    line-height: 21px;
+    /* 新手写法👇 */
+    /* width: 70px;
+    height: 29px;
+    line-height: 29px;
+    text-align: center; */
+    position: relative;
+    margin-bottom: 10px;    
+}
+
+.userCard .welcome .sjx{
+    display: inline-block;
+    position: absolute;
+    border: 10px solid transparent;
+    width: 0px;
+    border-top-width: 0px;
+    left: 4px;
+    top: 100%;
+    border-left-color:#e06567;
+}
+.userCard .picture{
+    float: left;
+}
+.userCard .text{
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+.userCard .text h1{
+    margin-top: 18px;
+    margin-bottom: 5px;
+}
+.userCard .text hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+hr{
+    border: none;
+    height: 0;
+    border-top: 1px solid #dedede;
+}
+
+.userCard dl dt,
+.userCard dl dd{
+    padding: 5px 0px;
+    float: left;
+}
+
+.userCard dl dt{
+    width: 33%;
+    font-weight: bold;
+}
+.userCard dl dd{
+    width: 67%;
+    color: #9da0a7;
+}
+
+.userCard .pictureAndText{
+    padding: 50px;
+}
+.userCard >footer.media{
+    background:#e6686a;
+    text-align: center;
+}
+.userCard >footer.media > a{
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 50%;
+    width: 46px;
+    line-height: 30px;
+    padding: 8px 0px;
+    margin: 16px 16px;
+}
+.userCard >footer.media > a:hover{
+    background: #cf5d5f;
+}
+.userCard svg{
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    vertical-align:top; 
+}
+
+.yinyang{
+    height: 192px;
+    width: 96px;
+    border-style: solid;
+    background: white;
+    border-color: black;
+    border-width: 4px 100px 4px 4px;
+    /* margin: 100px auto; */
+    border-radius: 50%;
+    box-sizing: content-box;
+    left:10% ;
+    top:30% ;
+    position: relative;
+    position: fixed;
+    top:80%;
+    left: 85%;
+    filter: alpha(Opacity=40);-moz-opacity:0.4;opacity: 0.4;
+}
+
+@keyframes yinyang{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+    
+        transform: rotate(360deg);
+    }
+
+}
+.yinyang:hover{
+    filter: alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: yinyang;
+    animation-timing-function: linear;
+   
+    
+}
+.yinyang::before{
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px; 
+    top: 0%;
+    left: 50%;
+    background: black;
+    border:36px solid white;
+    border-radius: 100%;
+    box-sizing: content-box;
+
+
+
+}   
+.yinyang::after{
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px; 
+    top: 50%;
+    left: 50%;
+    background: white;
+    border:36px solid black;
+    border-radius: 100%;
+    box-sizing: content-box;
+}
+
+body main{
+    margin-top:-340px;
+}
+
+body > main .download-xyz{
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    display: inline-block;
+    border: 1px solid #cdcfd1;
+    border-top: transparent;
+    background: #efefef;
+    border-radius: 12%;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;
+}
+body > main .download-xyz:hover{
+    transition: box-shadow 0.3s;
+    box-shadow: 3px 10px 22px -6px rgba(0,0,0,0.35);
+}
+
+body > main  .download-xyz-warpper{
+    text-align: center;
+
+}
+@font-face{
+    font-family: BlackwoodCastleShadow;
+    font-weight: bold;
+    src: url("./font/BLACCS_.TTF")
+}
+body > main .self-info{
+    font-family: "BlackwoodCastleShadow";
+    max-width: 940px;
+    font-size: 28px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
