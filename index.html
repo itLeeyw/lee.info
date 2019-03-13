@@ -101,31 +101,84 @@
 			</p>
 		</main>
 		
-		<section>
+		<section class="skills">
 			<h2>技能</h2>
-			<ol>
-				<li>Html5 & CSS3 & JS</li>
-				<li>Vue & React JQuery</li>
-				<li>Python & C++ & C & Java</li>
-				<li>HTTP</li>
-				<li>PhotoShop & AI & Pr &Lr</li>
-				<li>摄影</li>
+			<ol class="clearfix">
+					<li>
+					<h3>Html5 & CSS3 & JS</h3>
+					<div class="progressBar">
+						<div class="progress" style="width:30%"></div>
+					</div>
+				</li>
+				<li>
+					<h3>Vue & React JQuery</h3>
+					<div class="progressBar">
+						<div class="progress" style="width:10%"></div>
+					</div>
+				</li>
+				<li>
+				<h3>Python & C++ & C & Java</h3>
+				<div class="progressBar">
+					<div class="progress" style="width:35%"></div>
+				</div>
+				</li>
+				<li>
+					<h3>摄影</h3>
+					<div class="progressBar">
+						<div class="progress" style="width:33%"></div>
+					</div>
+				</li>
+				<li>
+					<h3>PhotoShop & AI & Pr &Lr</h3>
+					<div class="progressBar">
+						<div class="progress" style="width:41%"></div>
+					</div>
+				</li>
+				<li>
+					<h3>当咸鱼</h3>
+					<div class="progressBar">
+						<div class="progress" style="width:100% ;background:red ; box-shadow:0px 0px 12px rgba(255,0,0,0.5)"></div>
+					</div>
+				</li>
 			</ol>
 		</section>
-		<section>
-			<h2>作品集</h2>
-			<nav>
-				<ol>
-					<li>All</li>
-					<li>框架</li>
-					<li>原生JS & Css</li>
-				</ol>
-			</nav>
-			<div class="jobs">
-				<div class="big"></div>
-				<div class="small"></div>
-				<div class="small"></div>
-			</div>
-		</section>  
+		<section class="portfolio">
+				<h2>作品集</h2>
+				<nav>
+					<ol class="clearfix">
+						<li id="portfolioAll">所有</li>
+						<li id="porforlioFramework">框架作品</li>
+						<li id="portforlioVallina">原生JS &amp; CSS</li>
+					</ol>
+				<div id="portfoliobar" class="bar state-3">
+					<div class="bar-inner"></div>
+				</div>
+				</nav>
+				<script>
+				portfolioAll.onclick= function(){
+					portfoliobar.className = 'bar state-1'
+				}
+				porforlioFramework.onclick= function(){
+					portfoliobar.className = 'bar state-2'
+				}
+				portforlioVallina.onclick= function(){
+					portfoliobar.className = 'bar state-3'
+				}
+				/*出现错误，修改几个位置，id名称，script中的引号，单词拼写错误*/
+				</script>
+				<div class="jobs">
+					<div class="big">
+						<img src="./img/1.jpg" alt="作品1">
+					</div>
+					<div class="small1">
+						<img src="./img/2.jpg" alt="作品2">
+					</div>
+					<div class="small2">
+						<img src="./img/3.jpg" alt="作品3">
+					</div>
+				</div>
+				</section>
+
+	
 	</body>
 </html> 

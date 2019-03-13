@@ -9,6 +9,18 @@ a{
     margin: 0;
     padding: 0;
 }
+ul,ol{
+    list-style: none;
+}
+hr{
+    border: none;
+    height: 0;
+    border-top: 1px solid #dedede;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
 .clearfix::after{
     content: '';
     display: block;
@@ -60,7 +72,19 @@ a{
 }
 
 .topNavBar>div>nav>ul>li>a:hover{
+   animation-name: topnavbar_a;
+   animation-duration: 0.2s;
+   animation-fill-mode: forwards;
+}
+@keyframes topnavbar_a{
+   0%{
+    border-bottom: 0px solid transparent;
+   }
+   100%{
     border-bottom: 3px solid #e06567;
+    
+   }
+
 }
 
 .topNavBar .logo {
@@ -140,11 +164,6 @@ a{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-hr{
-    border: none;
-    height: 0;
-    border-top: 1px solid #dedede;
-}
 
 .userCard dl dt,
 .userCard dl dd{
@@ -186,7 +205,10 @@ hr{
     fill: #fff;
     vertical-align:top; 
 }
-
+.userCard svg:hover{
+    transform: scale(1.1, 1.1);
+    transition-duration: 0.1s;
+}
 .yinyang{
     height: 192px;
     width: 96px;
@@ -201,9 +223,10 @@ hr{
     top:30% ;
     position: relative;
     position: fixed;
-    top:80%;
+    top:70%;
     left: 85%;
     filter: alpha(Opacity=40);-moz-opacity:0.4;opacity: 0.4;
+    
 }
 
 @keyframes yinyang{
@@ -222,6 +245,8 @@ hr{
     animation-iteration-count: infinite;
     animation-name: yinyang;
     animation-timing-function: linear;
+    transition: box-shadow 0.3s;
+    box-shadow: 3px 10px 22px -6px rgba(0,0,0,0.5);
    
     
 }
@@ -282,13 +307,153 @@ body > main  .download-xyz-warpper{
 @font-face{
     font-family: BlackwoodCastleShadow;
     font-weight: bold;
-    src: url("./font/BLACCS_.TTF")
-}
+    src: url("./font/BLACCS_.TTF");
+    src: url("./font/Vampyrish.ttf");
+    }
 body > main .self-info{
-    font-family: "BlackwoodCastleShadow";
+    font-family: "Vampyrish","BlackwoodCastleShadow";
     max-width: 940px;
     font-size: 28px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0, 0.3);
+}
+
+section.skills,
+section.portfolio{
+    margin-top: 60px;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+section.skills > h2,
+section.portfolio > h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+
+}
+section.portfolio > nav > ol  {
+
+    display: inline-block;
+}
+section.portfolio {
+    text-align: center;
+}
+section.portfolio > nav {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+section.portfolio > nav > ol > li {
+    margin-top: 15px;
+    margin-left: 40px;
+    float: left;
+    vertical-align: top;
+    cursor: pointer;
+}
+section.portfolio > nav > ol > li:first-child{
+    margin-left: 0;
+
+}
+section.portfolio > nav > div.bar {
+    margin-top: 5px;
+    margin-bottom: 100px;
+    border: 1px solid red;
+    height: 5px;
+    background: white;
+    border-radius: 3px;
+}
+
+section.portfolio >nav .barInner{
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    transition: all 0.3s;
+
+}
+.portfolio>nav .bar.state-1 .bar-inner {
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    margin-left: 0px;
+    width: 18%;
+    transition: all 0.3s;
+}
+.portfolio>nav .bar.state-2 .bar-inner {
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    margin-left: 50px;
+    width: 35%;
+    transition: all 0.3s;
+}
+.portfolio>nav .bar.state-3 .bar-inner {
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    width: 45%;
+    margin-left: 152px;
+    transition: all 0.3s;
+}
+section.skills > ol > li > h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+
+
+}
+section.skills > ol{
+    background: white;
+    margin-top: 30px;
+    box-shadow: 0px 1px 5px 2px rgba(0,0,0,0.4);
+    padding: 42px 50px 8px;
+}
+section.skills > ol > li{
+    float: left;
+    width: 48%;
+    
+}
+section.skills > ol > li:nth-child(even){
+    float: right;
+}
+
+section.skills .progressBar{
+    height: 5px;
+    background: #fae1e1;
+    border-radius: 2px;
+    margin: 4px 0 40px;
+}
+section.skills .progress{
+    background:#e6686a;
+    height: 100%;
+    width: 10%;
+    border-radius: 2px;
+
+}
+
+section .jobs {
+    margin-top: 28px;
+    position: relative;
+    height: 597px;
+}
+
+section .jobs .big {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+section .jobs .small1 {
+    position: absolute;
+    top: 0;
+    left: 646px;
+}
+section .jobs .small2 {
+    position: absolute;
+    top: 312px;
+    left: 646px;
 }
