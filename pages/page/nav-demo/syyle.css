@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+a{ text-decoration: none}
+
+.bg_body{
+    background: grey url("bg.png") no-repeat center center;
+    background-size: cover;
+}
+main{
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 4px 0 0 rgba(255, 255, 255, 0.4);
+}
+kbd{
+    font-family: "Perfect Dark (BRK)";
+    margin: 9px 6px;
+    /* 将inline display设置成inline-flex */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #373737;
+    /* 通过逗号分隔设置多重阴影 */
+    box-shadow: 0 0 0 1px #1a1b1c,0 0 0 2px #1f2020 , 2px 3px 0 1px #080808;
+    color: #c5c5c5;
+    /* em 包裹元素的相对大小，按比例缩放 */
+    height: 80px;
+    width: 100px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom,#292929 0%,#111111 100%);
+    text-transform: uppercase;
+    position: relative;
+}
+
+@font-face{
+    font-family: "Perfect Dark (BRK)";
+    font-weight: bold;
+    src: url("../../../font/BLACCS_.TTF");
+    src: url("../../../font/Vampyrish.ttf");
+    src:url("../../../font/pdark.ttf")
+    }
+kbd > img{
+    position: absolute;
+    left: 3px;
+    bottom: 3px;
+    width: 18px;
+    height: 18px;
+}
+kbd > button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: none;
+}
+kbd:hover > button{
+    display: inline-block;
+}
+#_main{
+    display: inline-block;
+}
+#_main > div:nth-child(2){
+    margin-left: 1em;
+}
+#_main > div:nth-child(3){
+    margin-left:-8em;
+}

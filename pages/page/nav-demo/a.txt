@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>常用网站导航</title>
+    <link rel="stylesheet" href="./syyle.css">
+</head>
+<body>
+    <header></header>
+    <main >
+        <div id = "_main">
+
+        </div>
+    </main>
+    <footer></footer>
+    <script>
+        var keys = {
+            0:{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p','length':10 },
+            1:{0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l','length':9},
+            2:{0:'z',1:'x',2:'c',3:'v',4:'b',5:'n',6:'m','length':7},
+            length: 3
+        }
+        var hash = {
+            q:'qq.com',
+            w:'',
+            e:'',
+            r:'',
+            t:'',
+            y:'',
+            u:'',
+            i:'',
+            o:'',
+            p:'',
+            a:'',
+            s:'',
+            d:'dribbble.com',
+            f:'',
+            g:'',
+            h:'',
+            j:'',
+            k:'',
+            l:'',
+            z:'zhihu.com',
+            x:'',
+            c:'',
+            v:'',
+            b:'',
+            n:'',
+            m:'developer.mozilla.org/zh-CN/'
+        }
+       
+        index = 0
+        hashInLocalStorage = JSON.parse(localStorage.getItem('www') ||'null')
+        if(hashInLocalStorage){
+            hash = hashInLocalStorage
+        }
+
+
+        while(index < keys['length']){
+            _div = document.createElement('div')//创建一个标签    
+            _main.appendChild(_div)//添加标签
+            len = keys[index]
+            var i = 0;
+            while(i < len['length']){
+                _kbd = document.createElement('kbd')
+                _span = document.createElement('span')
+                _span.textContent = len[i]
+                _div.appendChild(_kbd)
+                _kbd.appendChild(_span)
+                _button = document.createElement('button')
+                _button.textContent = "编辑"
+                _kbd.appendChild(_button)
+                _button.id = len[i]
+                _img = document.createElement('img')
+                if(hash[len[i]]){
+                    _img.src = 'http://' + hash[len[i]] + '/favicon.ico'
+                }else{
+                    _img.src = 'https://i.loli.net/2019/03/28/5c9ce12956d5f.png'
+                }
+                _img.onerror = function(r){
+                    r.target.src = 'https://i.loli.net/2019/03/28/5c9ce12956d5f.png'
+                }
+
+                _button.onclick = function(re){
+                    key = re['target']['id']
+                    x = prompt('输入网址')
+                    hash[key] = x;
+                    localStorage.setItem('www',JSON.stringify(hash))
+                }
+                _kbd.appendChild(_img)
+                i = i + 1
+            
+            }
+            
+            index = index + 1
+        }
+        document.onkeypress = function(lee){
+            console.log("你输入了一个键")
+            key = lee['key']
+            website = hash[key]
+            console.log(website)
+            console.log(location.href)
+            // location.href = 'http://' + website //将当前页面设置为此网页
+            window.open('http://' + website) //在新开页面打开此网页
+        }
+    </script>
+</body> 
+</html>
