@@ -7,10 +7,10 @@
     <title>≥£”√Õ¯’æµº∫Ω</title>
     <link rel="stylesheet" href="./syyle.css">
 </head>
-<body>
+<body class="bg_body">
     <header></header>
     <main >
-        <div id = "_main">
+        <div id = "_main" class="wrapper">
 
         </div>
     </main>
@@ -33,7 +33,7 @@
             i:'',
             o:'',
             p:'',
-            a:'',
+            a:'alpha.wallhaven.cc',
             s:'',
             d:'dribbble.com',
             f:'',
@@ -48,7 +48,7 @@
             v:'',
             b:'',
             n:'',
-            m:'developer.mozilla.org/zh-CN/'
+            m:'developer.mozilla.org'
         }
        
         index = 0
