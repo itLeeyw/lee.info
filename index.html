@@ -236,7 +236,7 @@
 					</div>
 				</div>
 				</section>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.3.0/Tween.min.js"></script>
 	<script>
 		setTimeout(function(){
 			siteWelcome.classList.remove('action')
@@ -247,6 +247,11 @@
 			window.scrollY > 0 ? topNav.classList.add('sticky') : topNav.classList.remove('sticky')
 		}
 		let liTags = document.querySelectorAll('nav.menu > ul > li')
+		function animate(time) {
+			requestAnimationFrame(animate);
+			TWEEN.update(time);
+		}
+		requestAnimationFrame(animate);
 		menuLen = liTags.length;
 		for(let i = 0; i < menuLen; i++){
 			liTags[i].onmouseenter = function(x){
@@ -262,14 +267,29 @@
 			aTags[i].onclick = function(x){
 				//阻止默认跳转
 				x.preventDefault()
-				let a = x.currentTarget
-				let href = a.getAttribute('href')//#siteAbout , a.href 是浏览器处理过的路径
+				let a = x.currentTarget;
+				let href = a.getAttribute('href');
 				let element = document.querySelector(href)
-				let top = element.offsetTop // 获取当前元素距离视口顶的距离
-				window.scrollTo(0,top - 80);//代码实现滑动窗口，参数1：x-coord , 参数2:y-coord
+				let top = element.offsetTop
+				//window.scrollTo(0,top - 80)//到视口顶部
+				let currentTop = window.scrollY
+				let targetTop = top - 80
+
+				s = targetTop - currentTop
+
+				console.log(targetTop , currentTop)
+				var coords = { x:0 , y: currentTop }; // Start
+				var tween = new TWEEN.Tween(coords)
+					.to({ x: 0,y: targetTop }, 500) // Move to (targettop) in t ms.
+					.easing(TWEEN.Easing.Quadratic.InOut) // Use an easing function to make the animation smooth.
+					.onUpdate(function () { // Called after tween.js updates 'coords'.
+						window.scrollTo(0, coords.y)
+					})
+					.start(); // Start the tween immediately.
 
 			}
 		}
 	</script>
+
 	</body>
 </html> 
