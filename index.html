@@ -60,22 +60,34 @@
 		<div id='siteWelcome' class='site-welcome action'>
 			<div class='loading'></div>
 		</div>
-		<div class="topNavBar ">
+		<div id='topNav' class="topNavBar">
 			<div class="topNavBar-inner clearfix">
 				<a	class="logo" href="#" alt="logo">
 					<span class="lee">LEE</span><span class="card">Card</span>
 				</a>
 				<!-- <img src='#' alt="logo"/> -->
-				<nav>
+				<nav class="menu">
 					<ul style="list-style:none;  margin:0 ;padding: 0" class="clearfix"><!--unordered list-->
-						<li><a href="#">ABOUT</a></li><!--list item , ul's son-->
-						<li><a href="#">SKILLS</a></li>
-						<li><a href="#">PRICING</a></li>
-						<li><a href="#">BLOG</a></li>
-						<li><a href="#">CALENDAR</a></li>
-						<li><a href="#">CONTACT</a></li>
-						<li><a href="#">OTHER</a></li>
-						<li><a href="#">ALL DEMOS</a></li>
+						<li><a href="#siteAbout">ABOUT</a></li><!--list item , ul's son-->
+						<li class="menuTigger" ><a href="#siteSkills">SKILLS</a>
+							<ul class="submenu">
+								<li>技能 1</li>
+								<li>技能 2</li>
+								<li>技能 3</li>
+							</ul>
+						</li>
+						<li><a href="#sitePricing">PRICING</a></li>
+						<li><a href="#siteBlog">BLOG</a></li>
+						<li><a href="#siteCalendar">CALENDAR</a></li>
+						<li><a href="#siteContact">CONTACT</a></li>
+						<li><a href="#siteOther">OTHER</a></li>
+						<li class="menuTigger" ><a href="#siteAllDemos">ALL DEMOS</a>
+							<ul class="submenu">
+								<li>作品 1</li>
+								<li>作品 2</li>
+								<li>作品 3</li>
+							</ul>
+						</li>
 					<ul>	
 				</nav>
 			</div>
@@ -85,7 +97,7 @@
 			<div class="mask"></div>
 		</div>
 		<main>
-			<div class="userCard">
+			<div id='siteAbout' class="userCard">
 				<div class="pictureAndText clearfix">
 				<div class="picture">
 					<img src="./img/icon.jpeg" width=299 height=347 alt="头像"><!--alt:alter-->
@@ -147,7 +159,7 @@
 			</p>
 		</main>
 		
-		<section class="skills">
+		<section id='siteSkills' class="skills">
 			<h2>技能</h2>
 			<ol class="clearfix">
 					<li>
@@ -188,7 +200,7 @@
 				</li>
 			</ol>
 		</section>
-		<section class="portfolio">
+		<section id='siteAllDemos' class="portfolio">
 				<h2>作品集</h2>
 				<nav>
 					<ol class="clearfix">
@@ -226,7 +238,38 @@
 				</section>
 
 	<script>
-		siteWelcome.classList.remove('action')
+		setTimeout(function(){
+			siteWelcome.classList.remove('action')
+		},
+			1000
+		)
+		window.onscroll = function(x){
+			window.scrollY > 0 ? topNav.classList.add('sticky') : topNav.classList.remove('sticky')
+		}
+		let liTags = document.querySelectorAll('nav.menu > ul > li')
+		menuLen = liTags.length;
+		for(let i = 0; i < menuLen; i++){
+			liTags[i].onmouseenter = function(x){
+				x.currentTarget.classList.add('active')
+			}
+			liTags[i].onmouseleave = function(x){
+				x.currentTarget.classList.remove('active')
+			}
+		}
+		aTags = document.querySelectorAll('.menu > ul > li > a')
+		aLen = aTags.length
+		for (let i = 0; i < aLen; i++){
+			aTags[i].onclick = function(x){
+				//阻止默认跳转
+				x.preventDefault()
+				let a = x.currentTarget
+				let href = a.getAttribute('href')//#siteAbout , a.href 是浏览器处理过的路径
+				let element = document.querySelector(href)
+				let top = element.offsetTop // 获取当前元素距离视口顶的距离
+				window.scrollTo(0,top - 80);//代码实现滑动窗口，参数1：x-coord , 参数2:y-coord
+
+			}
+		}
 	</script>
 	</body>
 </html> 

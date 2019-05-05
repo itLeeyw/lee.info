@@ -32,12 +32,17 @@ h1,h2,h3,h4,h5,h6{
     /* 脱离文档流，让效果处于图片背景之上 */
     position: fixed;
     top: 0;
-    left: 0;
+    left: 0;    
+    transition: all 0.65s;
+    color: #b7b7b7;
 }
 
 .topNavBar-inner{
     padding: 0px 16px;
+
 }
+.topNavBar.sticky{color: black; background: rgba(255,255,255,0.7); padding: 15px 0; z-index:1;
+box-shadow: 0 0 3px rgba(0,0,0, 0.3)}
 .topNavBar > div > a{
     color: #e06567;
  
@@ -51,12 +56,12 @@ h1,h2,h3,h4,h5,h6{
    float: left;
    margin-left: 17px;
    margin-right: 17px;
-
+   position: relative;
 }
 
 .topNavBar > div > nav > ul > li > a{
     font-size: 12px;
-    color: #b7b7b7;
+    color: inherit;
     text-decoration: none;
     font-weight: bold;
     border-top: 3px solid transparent;
@@ -64,6 +69,7 @@ h1,h2,h3,h4,h5,h6{
     padding-top: 5px;
     padding-bottom:8px;  
     display: block;
+    position: relative;
 }
 .topNavBar > div > nav{
     padding-top: 5px;
@@ -71,22 +77,47 @@ h1,h2,h3,h4,h5,h6{
 
 }
 
-.topNavBar>div>nav>ul>li>a:hover{
-   animation-name: topnavbar_a;
-   animation-duration: 0.2s;
-   animation-fill-mode: forwards;
+.topNavBar > div > nav > ul > li.active > a::after{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    animation: topnavbar_a 0.2s;
 }
 @keyframes topnavbar_a{
-   0%{
-    border-bottom: 0px solid transparent;
-   }
-   100%{
-    border-bottom: 3px solid #e06567;
-    
-   }
-
+   0%{ width:0; }
+   100%{ width: 100%; }
 }
-
+.topNavBar .submenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top:100%;
+    background: white;
+    color: #3d4451;
+    animation: submenuSlide .4s;
+}
+@keyframes submenuSlide{
+    0%{margin-right: 100%;opacity: 0;}
+    100%{margin-right: 0%;opacity: 1;}
+}
+.topNavBar li.active > .submenu{
+    display: block;
+}
+.topNavBar .submenu > li{
+    /* 不让绝对定位元素换行，绝对定位元素和浮动元素会能缩就缩 */
+    cursor:pointer;
+    white-space: nowrap;
+    padding: 10px 10px;
+}
+.topNavBar .submenu > li:hover{
+    background: rgba(128,128,128,0.3);
+    transition: all 0.3s;
+}
 .topNavBar .logo {
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
