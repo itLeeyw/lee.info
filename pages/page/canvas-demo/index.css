@@ -1,22 +1,114 @@
-body{
+ul,ol{
+    list-style: none; 
+}
+*{
     /* 因为body的默认边界为8px */
     margin: 0;
 }
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+
+
 #canvas_{
+    display: block; 
     background: gainsboro;
+    position: fixed;
+    top:0;
+    left: 0;
 }
 
 .actions{
     position: fixed;
     left: 0;
-    bottom: 0;
+    top: 0;
+    padding: 20px;
 }
-.actions > #brush{
-    display: none;
+.actions svg{
+    width: 1.5em;
+    height: 1.5em;
+    transition: all 0.3s;
+    margin: 0 10px ;
 }
-.actions.x > #brush{
+
+.actions svg.active{
+    fill: red;
+    transform: scale(1.5);
+}
+
+.colors{
+    position: fixed;
+    top: 100px;
+    left: -20px;
+}
+
+.colors > li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 10px 0;
+    transition: all 0.3s;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+}
+td.active{
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+    transform: scale(1.2)
+}
+
+.spec{position: fixed;left: 16px;top: 173px;}
+.spec > .small{width: 5px;height: 5px; background: black}
+.spec > .mid{width: 10px;height: 10px; background: black}
+.spec > .large{width: 18px;height: 18px; background: black}
+
+.table-attr{
+    position: fixed; 
+    left: 10px;
+
+}
+td{
     display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 2px 2px;
+    transition: all 0.3s;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
+
 }
-.actions.x > #eraser{
-    display: none;
+
+td.red{
+    background: red;
+}
+td.green{
+    background: green;
+}
+td.blue{
+    background: blue;
+}
+td.white{
+    background: white;     
+}
+td.gray{
+    background: gray;
+}
+td.black{
+    background: black;
+}
+td.aqua{
+    background: aqua;
+}
+td.fuchsia{
+    background: fuchsia;
+}
+td.salmonpink{
+    background: salmon;
+}
+.size > td{
+    text-align: center;
+    justify-items: center;
+    font-size: 10px;
 }

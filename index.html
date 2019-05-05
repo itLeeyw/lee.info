@@ -2,6 +2,7 @@
 <html >
 	<head>
 		<title>Leeyw的小宇宙</title>
+		<link rel="stylesheet" href="./loading.css">
 		<link rel="stylesheet" href="./a.css" />
 		<script src="//at.alicdn.com/t/font_1080733_bcqc5fqv31i.js"></script>
 		<style type="text/css">
@@ -11,9 +12,54 @@
 			   fill: currentColor;
 			   overflow: hidden;
 			}
+			.site-welcome{
+				display:none;
+				position:fixed;
+				top: 0; left: 0; width: 100%; height: 100%;
+				background:#888;
+				z-index:20;
+				justify-content: center;
+				align-items: center;
+			}
+			.site-welcome.action{
+				display:flex;
+			}
+			.loading{
+				width: 200px;
+				height: 200px;
+				position: relative;
+			}
+			.loading::before,.loading::after{
+				content: '';
+				position: absolute;
+				width: 0px;
+				height: 0px;
+				background: black;
+				border-radius: 50%;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				animation: load 1.5s linear infinite;
+			}
+			.loading::after{
+				animation-delay: 0.75s;
+			}
+			@keyframes load {
+				0%{
+					width: 0;height: 0;opacity: 1;
+				}
+				100%{
+					width: 80px; height: 80px;opacity: 0;
+				}
+			}
 		</style>
 	</head>
 	<body>
+		<div id='siteWelcome' class='site-welcome action'>
+			<div class='loading'></div>
+		</div>
 		<div class="topNavBar ">
 			<div class="topNavBar-inner clearfix">
 				<a	class="logo" href="#" alt="logo">
@@ -179,6 +225,8 @@
 				</div>
 				</section>
 
-	
+	<script>
+		siteWelcome.classList.remove('action')
+	</script>
 	</body>
 </html> 

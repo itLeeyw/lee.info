@@ -2,18 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="//at.alicdn.com/t/font_1148508_3v4zrh0hmqn.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link type="text/css" rel="stylesheet" href="./index.css"/>
-   
+    <link rel="icon" href="draw.png" type="image/x-icon" />
     <title>你画我猜</title>
 </head>
 <body>
     <canvas id="canvas_" width=300 height=300></canvas>
-    <div id = "actions" class="actions">
-        <button id="eraser">橡皮擦</button>
-        <button id="brush">画笔</button>
+    <div id="actions" class="actions">
+        <svg class="icon" id=eraser>
+            <use xlink:href="#icon-xiangpica"></use>
+        </svg>
+        <svg class="icon active" id=pen>
+            <use xlink:href="#icon-pen"></use>
+        </svg>
+        <svg class="icon" id=rreturn>
+            <use xlink:href="#icon-return"></use>
+        </svg>
+        <svg class="icon" id=clear>
+            <use xlink:href="#icon-lajitong"></use>
+        </svg>
+        <svg class="icon" id=save>
+            <use xlink:href="#icon-save"></use>
+        </svg>
     </div>
+    
+
+    <table class="table-attr colors">
+        <tr>
+            <td id=red class="red"></td>
+            <td id=green class="green"></td>
+            <td id=blue class="blue"></td>
+        </tr>
+        <tr>
+            <td id=white class="white"></td>
+            <td id=gray class="gray"></td>
+            <td id=black class="black"></td>
+        </tr>
+        <tr>
+            <td id=aqua class="aqua"></td>
+            <td id=fuchsia class="fuchsia"></td>
+            <td id=salmonpink class="salmonpink"></td>
+        </tr>
+        <tr class="size spec">
+            <td id=small class="small" ></td>
+            <td id=mid class="mid"></td>
+            <td id=large class="large"></td>
+        </tr>
+    </table>
+
     <script type="text/javascript" src="./canvas.js"></script>
 </body>
 </html>
