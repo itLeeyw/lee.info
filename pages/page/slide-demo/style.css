@@ -1,0 +1,15 @@
+*{ margin:0; padding:0 }
+*{box-sizing: border-box;}
+.window{
+    width: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.images{ position: relative;}
+.images > img{width: 100%; transition: all 0.5s; position: absolute;  top: 0;}
+.images > img.current{ left: 0; transition: }
+.images > img.leave{}
+.images > img.enter{}
+.images > img.stay{}
+
