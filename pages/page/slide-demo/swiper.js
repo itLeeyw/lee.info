@@ -1,14 +1,13 @@
 
-let n
-init()
+let n = 1
 setInterval(()=>{
-  makeLeave($(`.images > img:nth-child(${Range(n)})`))
+  makeLeave(getImageN(n))
     .one('transitionend',(e)=>{
       makeEnter($(e.currentTarget))
     })
-  makeCurrent($(`.images > img:nth-child(${Range(n+1)})`))
+  makeCurrent(getImageN(n + 1))
   n += 1;
-},1000)
+},2500)
 
 function Range(n){
   if (n > 5){
@@ -20,11 +19,7 @@ function Range(n){
   return n;
 }
 
-function init(){
-  n = 1;
-  $(`.images > img:nth-child(${n})`).addClass('current')
-    .siblings().addClass('enter')
-}
+
 function makeCurrent($node){
   return $node.removeClass('enter leave').addClass('current')
 }
@@ -33,4 +28,8 @@ function makeLeave($node){
 }
 function makeEnter($node){
   return $node.removeClass('leave current').addClass('enter')
+}
+
+function getImageN(n){
+  return $(`.images>img:nth-Child(${Range(n)}`)
 }

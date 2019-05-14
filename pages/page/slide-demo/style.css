@@ -1,18 +1,18 @@
-*{ margin:0; padding:0 }
-*{box-sizing: border-box;}
+*{ margin:0; padding:0; box-sizing: border-box;}
 .window{
     width: 400px;
     height: 300px;
     margin: 20px auto;
+    position: relative;
     overflow: hidden;
 
 }
 
-.images{ position: relative;}
+.images{ display: flex;}
 .images > img{
-    width: 100%; 
-    transition: all 0.3s; 
+    width: 100%;     
     position: absolute;  
+    transition: all 0.3s; 
     top: 0;
 }
 .images > img.current{ left: 0; transform: translateX(0); z-index: 1;}
