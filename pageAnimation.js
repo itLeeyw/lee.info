@@ -65,10 +65,10 @@ for (let i = 0; i < aLen; i++){
         let currentTop = window.scrollY
         let targetTop = top - 80
         let s = targetTop - currentTop
-        var t = Math.abs( s / 1000 * 300 ) //1000/s  300/t 交叉相乘
+        let t = Math.abs( s / 1000 * 300 ) //1000/s  300/t 交叉相乘
         console.log(t)
-        var coords = { x:0 , y: currentTop }; // Start
-        var tween = new TWEEN.Tween(coords)
+        let coords = { x:0 , y: currentTop }; // Start
+        let tween = new TWEEN.Tween(coords)
             .to({ x: 0,y: targetTop }, t) // Move to (targettop) in t ms.
             .easing(TWEEN.Easing.Quadratic.InOut) // Use an easing function to make the animation smooth.
             .onUpdate(function () { // Called after tween.js updates 'coords'.
