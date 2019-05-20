@@ -402,7 +402,7 @@ section.portfolio > nav > ol > li:first-child{
 }
 section.portfolio > nav > div.bar {
     margin-top: 5px;
-    margin-bottom: 100px;
+    margin-bottom: 18px;
     border: 1px solid red;
     height: 5px;
     background: white;
