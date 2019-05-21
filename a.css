@@ -550,3 +550,24 @@ section .jobs .small2 {
     top: 312px;
     left: 646px;
 }
+
+
+section.messageList > ol{
+    max-width: 700px;
+    max-height: 800px ;
+    overflow: auto;
+    margin:0 auto;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    background: #f4f4f4;   
+}
+
+section.messageList > ol > li{
+    padding: 16px;
+    border-bottom: 1px solid #DDD;
+}
+section.messageList > form{
+
+    text-align: center;
+    padding: 0 20px 200px;
+}
