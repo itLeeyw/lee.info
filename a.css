@@ -554,7 +554,7 @@ section .jobs .small2 {
 
 section.messageList > ol{
     max-width: 700px;
-    max-height: 800px ;
+    max-height: 200px ;
     overflow: auto;
     margin:0 auto;
     border-top: 1px solid #DDD;
