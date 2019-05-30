@@ -1,0 +1,28 @@
+{
+  "name": "xyz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "leaveAMessage.js",
+  "dependencies": {
+    "leancloud-storage": "^3.13.2",
+    "node-sass": "^4.12.0",
+    "swiper": "^4.5.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itLeeyw/lee.info.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/itLeeyw/lee.info/issues"
+  },
+  "homepage": "https://github.com/itLeeyw/lee.info#readme"
+}

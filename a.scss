@@ -1,0 +1,573 @@
+body{
+    background: #efefef;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,ol{
+    list-style: none;
+}
+hr{
+    border: none;
+    height: 0;
+    border-top: 1px solid #dedede;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+ .site-welcome{
+     display:none;
+     position:fixed;
+     top: 0; left: 0; width: 100%; height: 100%;
+     background:#888;
+     z-index:20;
+     justify-content: center;
+     align-items: center;
+ }
+ .site-welcome.action{
+     display:flex;
+ }
+ .loading{
+     width: 200px;
+     height: 200px;
+     position: relative;
+ }
+ .loading::before,.loading::after{
+     content: '';
+     position: absolute;
+     width: 0px;
+     height: 0px;
+     background: black;
+     border-radius: 50%;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     margin: auto;
+     animation: load 1.5s linear infinite;
+ }
+ .loading::after{
+     animation-delay: 0.75s;
+ }
+ @keyframes load {
+     0%{
+         width: 0;height: 0;opacity: 1;
+     }
+     100%{
+         width: 80px; height: 80px;opacity: 0;
+     }
+ }
+
+[data-x].offset{
+    transform: translateY(100px);
+}
+[data-x]{
+    transform: translateY(0);
+    transition:all 0.5s;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.topNavBar{
+    width: 100%;
+    padding: 28px 0px;
+    /* 脱离文档流，让效果处于图片背景之上 */
+    position: fixed;
+    top: 0;
+    left: 0;    
+    transition: all 0.65s;
+    color: #b7b7b7;
+}
+
+.topNavBar-inner{
+    padding: 0px 16px;
+
+}
+.topNavBar.sticky{color: black; background: rgba(255,255,255,0.7); padding: 15px 0; z-index:1;
+box-shadow: 0 0 3px rgba(0,0,0, 0.3)}
+.topNavBar > div > a{
+    color: #e06567;
+ 
+    float: left;
+}
+
+.topNavBar > div > nav > ul{
+    float: right;
+}
+.topNavBar > div > nav > ul > li{
+   float: left;
+   margin-left: 17px;
+   margin-right: 17px;
+   position: relative;
+}
+
+.topNavBar > div > nav > ul > li > a{
+    font-size: 12px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    padding-top: 5px;
+    padding-bottom:8px;  
+    display: block;
+    position: relative;
+}
+.topNavBar > div > nav{
+    padding-top: 5px;
+    padding-bottom: 2px;
+
+}
+
+.topNavBar > div > nav > ul > li.active > a::after,
+.topNavBar > div > nav > ul > li.highlight > a::after
+{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #e06567;
+    height: 3px;
+    animation: topnavbar_a 0.2s;
+}
+@keyframes topnavbar_a{
+   0%{ width:0; }
+   100%{ width: 100%; }
+}
+.topNavBar .submenu{
+    display: none;
+    position: absolute;
+    right: 0;
+    top:100%;
+    background: white;
+    color: #3d4451;
+    animation: submenuSlide .4s;
+}
+@keyframes submenuSlide{
+    0%{margin-right: 100%;opacity: 0;}
+    100%{margin-right: 0%;opacity: 1;}
+}
+.topNavBar li.active > .submenu{
+    display: block;
+}
+.topNavBar .submenu > li{
+    /* 不让绝对定位元素换行，绝对定位元素和浮动元素会能缩就缩 */
+    cursor:pointer;
+    white-space: nowrap;
+    padding: 10px 10px;
+}
+.topNavBar .submenu > li:hover{
+    background: rgba(128,128,128,0.3);
+    transition: all 0.3s;
+}
+.topNavBar .logo {
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    font-size: 24px;
+    font-family: "方正超粗黑_GBK";
+}
+
+.topNavBar .logo  .lee{
+    color: #e06567;
+    margin-right: 4px;
+}
+
+.topNavBar .logo .card{
+    color: gray;
+}
+.banner{
+    height: 515px;
+    background-image:url(./img/wallhaven-747189.jpg);
+    background-position: center center;
+    box-shadow: 0px 14px 26px 2px rgba(0,0,0,0.08);
+    background-size: cover;
+}
+
+.banner .mask{
+    height: 515px;
+    background-color:rgba(0,0,0,0.8);
+}
+
+
+.userCard{
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px 2px rgba(0,0,0,0.4);
+}
+.userCard .welcome{
+    background: #e06567;
+    color: #fff;
+    display: inline-block;
+    padding: 4px 16.5px;
+    line-height: 21px;
+    /* 新手写法👇 */
+    /* width: 70px;
+    height: 29px;
+    line-height: 29px;
+    text-align: center; */
+    position: relative;
+    margin-bottom: 10px;    
+}
+
+.userCard .welcome .sjx{
+    display: inline-block;
+    position: absolute;
+    border: 10px solid transparent;
+    width: 0px;
+    border-top-width: 0px;
+    left: 4px;
+    top: 100%;
+    border-left-color:#e06567;
+}
+.userCard .picture{
+    float: left;
+}
+.userCard .text{
+    float: left;
+    margin-left: 65px;
+    width: 470px;
+}
+.userCard .text h1{
+    margin-top: 18px;
+    margin-bottom: 5px;
+}
+.userCard .text hr{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.userCard dl dt,
+.userCard dl dd{
+    padding: 5px 0px;
+    float: left;
+}
+
+.userCard dl dt{
+    width: 33%;
+    font-weight: bold;
+}
+.userCard dl dd{
+    width: 67%;
+    color: #9da0a7;
+}
+
+.userCard .pictureAndText{
+    padding: 50px;
+}
+.userCard >footer.media{
+    background:#e6686a;
+    text-align: center;
+}
+.userCard >footer.media > a{
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 50%;
+    width: 46px;
+    line-height: 30px;
+    padding: 8px 0px;
+    margin: 16px 16px;
+}
+.userCard >footer.media > a:hover{
+    background: #cf5d5f;
+}
+.userCard svg{
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+    vertical-align:top; 
+}
+.userCard svg:hover{
+    transform: scale(1.1, 1.1);
+    transition-duration: 0.1s;
+}
+.yinyang{
+    height: 192px;
+    width: 96px;
+    border-style: solid;
+    background: white;
+    border-color: black;
+    border-width: 4px 100px 4px 4px;
+    /* margin: 100px auto; */
+    border-radius: 50%;
+    box-sizing: content-box;
+    left:10% ;
+    top:30% ;
+    position: relative;
+    position: fixed;
+    top:70%;
+    left: 85%;
+    filter: alpha(Opacity=40);-moz-opacity:0.4;opacity: 0.4;
+    
+}
+
+@keyframes yinyang{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+    
+        transform: rotate(360deg);
+    }
+
+}
+.yinyang:hover{
+    filter: alpha(Opacity=80);-moz-opacity:0.8;opacity: 0.8;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-name: yinyang;
+    animation-timing-function: linear;
+    transition: box-shadow 0.3s;
+    box-shadow: 3px 10px 22px -6px rgba(0,0,0,0.5);
+   
+    
+}
+.yinyang::before{
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px; 
+    top: 0%;
+    left: 50%;
+    background: black;
+    border:36px solid white;
+    border-radius: 100%;
+    box-sizing: content-box;
+
+
+
+}   
+.yinyang::after{
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px; 
+    top: 50%;
+    left: 50%;
+    background: white;
+    border:36px solid black;
+    border-radius: 100%;
+    box-sizing: content-box;
+}
+
+body main{
+    margin-top:-340px;
+}
+
+body > main .download-xyz{
+    font-size: 14px;
+    line-height: 16px;
+    padding: 21px 55px;
+    display: inline-block;
+    border: 1px solid #cdcfd1;
+    border-top: transparent;
+    background: #efefef;
+    border-radius: 12%;
+    color: #3d4451;
+    font-weight: bold;
+    margin: 32px 0;
+}
+body > main .download-xyz:hover{
+    transition: box-shadow 0.3s;
+    box-shadow: 3px 10px 22px -6px rgba(0,0,0,0.35);
+}
+
+body > main  .download-xyz-warpper{
+    text-align: center;
+
+}
+@font-face{
+    font-family: BlackwoodCastleShadow;
+    font-weight: bold;
+    src: url("./font/BLACCS_.TTF");
+    src: url("./font/Vampyrish.ttf");
+    }
+body > main .self-info{
+    font-family: "Vampyrish","BlackwoodCastleShadow";
+    max-width: 940px;
+    font-size: 28px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0,0,0, 0.3);
+}
+
+section.skills,
+section.portfolio{
+    margin-top: 60px;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+section.skills > h2,
+section.portfolio > h2{
+    text-align: center;
+    color: #3d4451;
+    font-size: 34px;
+    line-height: 1.2;
+    font-weight: 600;
+
+}
+section.portfolio > nav > ol  {
+
+    display: inline-block;
+}
+section.portfolio {
+    text-align: center;
+}
+section.portfolio > nav {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+section.portfolio > nav > ol > li {
+    margin-top: 15px;
+    margin-left: 40px;
+    float: left;
+    vertical-align: top;
+    cursor: pointer;
+}
+section.portfolio > nav > ol > li:first-child{
+    margin-left: 0;
+
+}
+section.portfolio > nav > div.bar {
+    margin-top: 5px;
+    margin-bottom: 18px;
+    border: 1px solid red;
+    height: 5px;
+    background: white;
+    border-radius: 3px;
+}
+
+section.portfolio >nav .barInner{
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    transition: all 0.3s;
+
+}
+.portfolio>nav .bar.state-1 .bar-inner {
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    margin-left: 0px;
+    width: 18%;
+    transition: all 0.3s;
+}
+.portfolio>nav .bar.state-2 .bar-inner {
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    margin-left: 50px;
+    width: 35%;
+    transition: all 0.3s;
+}
+.portfolio>nav .bar.state-3 .bar-inner {
+    height: 100%;
+    background-color: #e6686a;
+    border-radius: 6px;
+    width: 45%;
+    margin-left: 152px;
+    transition: all 0.3s;
+}
+section.skills > ol > li > h3{
+    font-size: 14px;
+    line-height: 1.1;
+    padding-right: 40px;
+
+
+}
+section.skills > ol{
+    background: white;
+    margin-top: 30px;
+    box-shadow: 0px 1px 5px 2px rgba(0,0,0,0.4);
+    padding: 42px 50px 8px;
+}
+section.skills > ol > li{
+    float: left;
+    width: 48%;
+    
+}
+section.skills > ol > li:nth-child(even){
+    float: right;
+}
+
+section.skills .progressBar{
+    height: 5px;
+    background: #fae1e1;
+    border-radius: 2px;
+    margin: 4px 0 40px;
+    overflow: hidden;
+}
+section.skills .progress{
+    background:#e6686a;
+    height: 100%;
+    width: 10%;
+    border-radius: 2px;
+    transform: translateX(0);
+    transition: all 0.3s;
+}
+section.skills.offset .progress{
+    transform: translateX(-100%)
+}
+section .jobs {
+    margin-top: 28px;
+    position: relative;
+    height: 597px;
+}
+
+section .jobs .big {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+section .jobs .small1 {
+    position: absolute;
+    top: 0;
+    left: 646px;
+}
+section .jobs .small2 {
+    position: absolute;
+    top: 312px;
+    left: 646px;
+}
+
+
+section.messageList > ol{
+    max-width: 700px;
+    max-height: 200px ;
+    overflow: auto;
+    margin:0 auto;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    background: #f4f4f4;   
+}
+
+section.messageList > ol > li{
+    padding: 16px;
+    border-bottom: 1px solid #DDD;
+}
+section.messageList > form{
+
+    text-align: center;
+    padding: 0 20px 200px;
+}
